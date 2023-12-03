@@ -59,8 +59,6 @@ Route::get('customer/{id}/view',[customerController::class,'view'])->name('custo
 Route::get('/order/index',[orderController::class,'index'])->name('order.index');
 Route::get('/order/create',[orderController::class,'create'])->name('order.create');
 Route::post('/order/store',[orderController::class,'store'])->name('order.store');
-Route::get('order/{id}/edit',[orderController::class,'edit'])->name('order.edit');
-Route::put('order/{id}/update',[orderController::class,'update'])->name('order.update');
 Route::get('order/{id}/delete',[orderController::class,'destroy']);
 Route::get('order/{id}/view',[orderControllerr::class,'view'])->name('order.view');
 

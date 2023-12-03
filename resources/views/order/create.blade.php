@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service_details_crud</title>
+    <title>Order_crud</title>
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -23,7 +23,7 @@
   <ul class="navbar-nav">
     <li class="nav-item">
 
-      <a class="nav-link text-light" href="/service_details/index">Service_Details</a>
+      <a class="nav-link text-light" href="{{ route('order.index') }}">Order</a>
       
     </li>
   </ul>
@@ -39,8 +39,27 @@
         <div class="row-justify-content-center">
             <div class="col-sm-12">
                 <div class="card mt-3 p-3">
-                <form method="POST" action="/service_details/store" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('order.store') }}" enctype="multipart/form-data">
                     @csrf
+                    <div class="from-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" 
+                        id="address" name="address"
+                        value="{{ old('address') }}"
+                        />
+                        @if($errors->has('address'))
+                        <span class="text-danger">{{ $errors->first('address') }}</span>
+                        @endif
+
+                        <div class="from-group">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" 
+                        name="phn_number" placeholder="Enter your phone number"
+                        value="{{ old('phn_number') }}"
+                        />
+                        @if($errors->has('phn_number'))
+                        <span class="text-danger">{{ $errors->first('phn_number') }}</span>
+                        @endif
                     
                     <div class="from-group">
                         <label>Service_Id</label>
@@ -54,44 +73,21 @@
 
                     </div>
                     <div class="from-group">
-                        <label>Service_name</label>
-                        <input type="text" class="form-control" id="service_name" 
-                        name="service_name"value="{{ old('service_name') }}"></input>
-                        @if($errors->has('service_name'))
-                        <span class="text-danger">{{ $errors->first('service_name') }}</span>
-                        @endif
-
-                    </div>
-
-                    <div class="from-group">
-                        <label>Image</label>
-                        <input type="file" class="form-control" 
-                        id="image" name="image"
-                        value="{{ old('image') }}"
+                        <label>Worker_Id</label>
+                        <input type="number" class="form-control" 
+                        id="worker_id" name="worker_id"
+                        value="{{ old('worker_id') }}"
                         />
-                        @if($errors->has('image'))
-                        <span class="text-danger">{{ $errors->first('image') }}</span>
-                        @endif
-                    </div>
-                    <div class="from-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" row="4" id="description" 
-                        name="description"value="{{ old('description') }}"></textarea>
-                        @if($errors->has('description'))
-                        <span class="text-danger">{{ $errors->first('description') }}</span>
+                        @if($errors->has('worker_id'))
+                        <span class="text-danger">{{ $errors->first('worker_id') }}</span>
                         @endif
 
                     </div>
 
-                    <div class="from-group">
-                        <label>Our_plan</label>
-                        <textarea type="text" class="form-control" row="4" id="our_plan" 
-                        name="our_plan"value="{{ old('our_plan') }}"></textarea>
-                        @if($errors->has('our_plan'))
-                        <span class="text-danger">{{ $errors->first('our_plan') }}</span>
-                        @endif
+                    
+                    
 
-                    </div>
+                
                     
 
                     </div>

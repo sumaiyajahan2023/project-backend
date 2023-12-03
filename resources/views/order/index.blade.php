@@ -27,6 +27,7 @@
       <a class="nav-link text-light" href="/service_details/index">Service_Details</a>
       <a class="nav-link text-light" href="/category/index">Categories</a>
       <a class="nav-link text-light" href="{{ route('customer.index') }}">Customers</a>
+      <a class="nav-link text-light" href="{{ route('order.index') }}">Order</a>
     </li>
   </ul>
 
@@ -62,7 +63,7 @@
         <td>{{  $order->service_id }}</td>
         <td>{{  $order->worker_id }}</td>
         <td>
-          <a href="{{ route('order.edit') }}" class="btn btn-dark btn_sm">Edit</a>
+          <a href="{{ route('order.view') }}" class="btn btn-dark btn_sm">View</a>
           <a href="{{ route('order.delete') }}" class="btn btn-danger btn_sm">Delete</a>  
 
         </td>
